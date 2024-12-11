@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block style %}
+<style>
+    .success{
+        background: green;
+    }
+    
+    .alert {
+            padding: 15px;
+            color: white;
+            opacity: 1;
+            transition: opacity 0.6s;
+            margin-bottom: 15px;
+        }
+        
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+    </style>
+{% endblock style %}
+
+{% block body %}
+    {% comment %} alert {% endcomment %}
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags %}
+    <div class="alert {{message.tags}}">
+        <span class="closebtn " onclick="this.parentElement.style.display='none';">&times;</span>
+        {{message}}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    <h1>Hello, {{user.username }} !!</h1>
+    <a href="{% url "changepassword" %}">Change Password</a>
+    <br>
+    <a href="{% url "profile" %}">Profile</a>
+    <br>
+    <a href="{% url "logout" %}">Log Out</a>
+{% endblock body %}
