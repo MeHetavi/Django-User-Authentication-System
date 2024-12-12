@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 
+{% block style %}
+<style>
+
+    .link{
+        text-decoration:none;
+        color:purple
+    }
+</style>
+    {% endblock style %}
+
 {% block body %}
     <h1>Profile</h1>
 
@@ -11,8 +21,8 @@
     <br>
     Last Updated : {{user.last_updated}}
     <br>
-    <a href="{% url "dashboard" %}">Dashboard</a>
+    <a href="{% url "dashboard" %}" class="link">Dashboard</a>
     <br>
-    <a href="{% url "logout" %}">Log Out</a>
+    <a href="{% url "logout" %}" class="link">Log Out</a>
 
 {% endblock body %}

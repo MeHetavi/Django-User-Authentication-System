@@ -27,6 +27,11 @@
         .closebtn:hover {
             color: black;
         }
+        
+    .link{
+        text-decoration:none;
+        color:purple
+    }
     </style>
 {% endblock style %}
 
@@ -43,9 +48,9 @@
     {% endfor %}
     {% endif %}
     <h1>Hello, {{user.username }} !!</h1>
-    <a href="{% url "changepassword" %}">Change Password</a>
+    <a href="{% url "changepassword" %}" class="link">Change Password</a>
     <br>
-    <a href="{% url "profile" %}">Profile</a>
+    <a href="{% url "profile" %}" class="link">Profile</a>
     <br>
-    <a href="{% url "logout" %}">Log Out</a>
+    <a href="{% url "logout" %}" class="link">Log Out</a>
 {% endblock body %}
